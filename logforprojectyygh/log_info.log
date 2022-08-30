@@ -1,0 +1,48 @@
+2022-08-30 21:33:27.581 [restartedMain] INFO  com.fanfanfan.yygh.hosp.ServiceHospMainSrarter - Starting ServiceHospMainSrarter on LAPTOP-EG20H0ET with PID 11680 (D:\Portfolio\yygh_parent\service\service_hosp\target\classes started by admin in D:\Portfolio\yygh_parent)
+2022-08-30 21:33:27.581 [restartedMain] INFO  com.fanfanfan.yygh.hosp.ServiceHospMainSrarter - Starting ServiceHospMainSrarter on LAPTOP-EG20H0ET with PID 11680 (D:\Portfolio\yygh_parent\service\service_hosp\target\classes started by admin in D:\Portfolio\yygh_parent)
+2022-08-30 21:33:27.591 [restartedMain] INFO  com.fanfanfan.yygh.hosp.ServiceHospMainSrarter - The following profiles are active: dev
+2022-08-30 21:33:27.591 [restartedMain] INFO  com.fanfanfan.yygh.hosp.ServiceHospMainSrarter - The following profiles are active: dev
+2022-08-30 21:33:27.761 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-08-30 21:33:27.763 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-08-30 21:33:29.120 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-08-30 21:33:29.461 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8201 (http)
+2022-08-30 21:33:29.471 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8201"]
+2022-08-30 21:33:29.471 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-08-30 21:33:29.471 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.27]
+2022-08-30 21:33:29.571 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-08-30 21:33:29.571 [restartedMain] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1808 ms
+2022-08-30 21:33:32.471 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-30 21:33:32.581 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2022-08-30 21:33:32.621 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2022-08-30 21:33:32.791 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2022-08-30 21:33:32.801 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 2 custom documentation plugin(s)
+2022-08-30 21:33:32.851 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2022-08-30 21:33:33.051 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2022-08-30 21:33:33.061 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8201"]
+2022-08-30 21:33:33.091 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8201 (http) with context path ''
+2022-08-30 21:33:33.091 [restartedMain] INFO  com.fanfanfan.yygh.hosp.ServiceHospMainSrarter - Started ServiceHospMainSrarter in 6.247 seconds (JVM running for 8.516)
+2022-08-30 21:33:33.091 [restartedMain] INFO  com.fanfanfan.yygh.hosp.ServiceHospMainSrarter - Started ServiceHospMainSrarter in 6.247 seconds (JVM running for 8.516)
+2022-08-30 21:47:32.253 [restartedMain] INFO  com.fanfanfan.yygh.hosp.ServiceHospMainSrarter - Starting ServiceHospMainSrarter on LAPTOP-EG20H0ET with PID 11492 (D:\Portfolio\yygh_parent\service\service_hosp\target\classes started by admin in D:\Portfolio\yygh_parent)
+2022-08-30 21:47:32.253 [restartedMain] INFO  com.fanfanfan.yygh.hosp.ServiceHospMainSrarter - Starting ServiceHospMainSrarter on LAPTOP-EG20H0ET with PID 11492 (D:\Portfolio\yygh_parent\service\service_hosp\target\classes started by admin in D:\Portfolio\yygh_parent)
+2022-08-30 21:47:32.253 [restartedMain] INFO  com.fanfanfan.yygh.hosp.ServiceHospMainSrarter - The following profiles are active: dev
+2022-08-30 21:47:32.253 [restartedMain] INFO  com.fanfanfan.yygh.hosp.ServiceHospMainSrarter - The following profiles are active: dev
+2022-08-30 21:47:32.391 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-08-30 21:47:32.391 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-08-30 21:47:33.709 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-08-30 21:47:34.069 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8201 (http)
+2022-08-30 21:47:34.079 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8201"]
+2022-08-30 21:47:34.079 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-08-30 21:47:34.079 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.27]
+2022-08-30 21:47:34.189 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-08-30 21:47:34.189 [restartedMain] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1798 ms
+2022-08-30 21:47:37.111 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-30 21:47:37.221 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2022-08-30 21:47:37.262 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2022-08-30 21:47:37.421 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2022-08-30 21:47:37.441 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 2 custom documentation plugin(s)
+2022-08-30 21:47:37.481 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2022-08-30 21:47:37.702 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2022-08-30 21:47:37.712 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8201"]
+2022-08-30 21:47:37.732 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8201 (http) with context path ''
+2022-08-30 21:47:37.741 [restartedMain] INFO  com.fanfanfan.yygh.hosp.ServiceHospMainSrarter - Started ServiceHospMainSrarter in 6.219 seconds (JVM running for 8.513)
+2022-08-30 21:47:37.741 [restartedMain] INFO  com.fanfanfan.yygh.hosp.ServiceHospMainSrarter - Started ServiceHospMainSrarter in 6.219 seconds (JVM running for 8.513)
