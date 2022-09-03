@@ -10,6 +10,9 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.fanfanfan.yygh.vo.cmn.DictEeVo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -31,9 +34,10 @@ import java.util.List;
 public class DictServiceImpl extends ServiceImpl<DictMapper, Dict> implements DictService {
     //根据数据id查询子数据列表
     @Override
+    @Cacheable(value = "dict", key = "'selectIndexList'+#id")
     public List<Dict> findChlidData(Long id) {
         QueryWrapper<Dict> wrapper = new QueryWrapper<>();
-        wrapper.eq("parent_id",id);//根据传入的父id精确查询
+        wrapper.eq("parent_id",id);
         List<Dict> dictList = baseMapper.selectList(wrapper);
         //向list集合每个dict对象中设置hasChildren
         for (Dict dict:dictList) {
@@ -50,7 +54,7 @@ public class DictServiceImpl extends ServiceImpl<DictMapper, Dict> implements Di
         Integer count = baseMapper.selectCount(wrapper);
         return count>0;
     }
-
+/**导出*/
     @Override
     public void exportData(HttpServletResponse response) {
         try {
@@ -75,8 +79,9 @@ public class DictServiceImpl extends ServiceImpl<DictMapper, Dict> implements Di
     }
     @Autowired
     private DictListener dictListener;
-
+/**导入*/
     @Override
+    @CacheEvict(value = "dict",allEntries = true)
     public void importDictData(MultipartFile file) {
         try {
             EasyExcel.read(file.getInputStream(),DictEeVo.class,dictListener).sheet().doRead();
@@ -84,4 +89,6 @@ public class DictServiceImpl extends ServiceImpl<DictMapper, Dict> implements Di
             e.printStackTrace();
         }
     }
+
+
 }
