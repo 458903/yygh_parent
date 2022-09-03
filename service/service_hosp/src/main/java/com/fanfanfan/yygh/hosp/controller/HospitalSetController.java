@@ -27,24 +27,34 @@ import java.util.Random;
  * </p>
  * @author fanfanfan
  */
+@CrossOrigin
 @RestController
 @Api(tags = "医院设置接口")
 @RequestMapping("/admin/hosp/hospital-set")
 public class HospitalSetController {
     @Autowired
     private HospitalSetService hospitalSetService;
+    /**
+     * 查询所有*
+     * */
     @ApiOperation(value = "查询所有医院设置信息")
     @GetMapping("findAll")
     public R findAll() {
         List<HospitalSet> list = hospitalSetService.list();
         return R.ok().data("list",list);
     }
+    /**
+     * 删除
+     * */
     @DeleteMapping("{id}")
     @ApiOperation(value = "根据医院设置id删除医院设置信息")
     public R removeById(@ApiParam(name = "id", value = "讲师ID", required = true)  @PathVariable String id){
          hospitalSetService.removeById(id);
          return R.ok();
     }
+    /**
+     * 分页
+     * */
     @ApiOperation(value = "分页医院设置列表")
     @GetMapping("{page}/{limit}")
     public R pageList(
@@ -84,7 +94,9 @@ public class HospitalSetController {
         hospitalSetService.page(pageParam, queryWrapper);
         return R.ok().data("total",pageParam.getTotal()).data("rows",pageParam.getRecords());
     }
-
+    /**
+     * 新增save
+     * */
     @ApiOperation(value = "新增医院设置")
     @PostMapping("saveHospSet")
     public R save(
@@ -98,7 +110,9 @@ public class HospitalSetController {
         hospitalSetService.save(hospitalSet);
         return R.ok();
     }
-
+    /**
+     * 根据id查询
+     * */
     @ApiOperation(value = "根据ID查询医院设置")
     @GetMapping("getHospSet/{id}")
     public R getById(
@@ -107,7 +121,9 @@ public class HospitalSetController {
         HospitalSet my = hospitalSetService.getById(id);
         return R.ok().data("item",my);
     }
-
+    /**
+     * 根据id修改
+     * */
     @ApiOperation(value = "根据ID修改医院设置")
     @PostMapping("updateHospSet")
     public R updateById(@ApiParam(name = "hospitalSet", value = "医院设置对象", required = true)
@@ -115,14 +131,18 @@ public class HospitalSetController {
         hospitalSetService.updateById(hospitalSet);
         return R.ok();
     }
-
+    /**
+     *批量删除
+     * */
     @ApiOperation(value = "批量删除医院设置")
     @DeleteMapping("batchRemove")
     public R batchRemoveHospitalSet(@RequestBody List<Long> idList) {
         hospitalSetService.removeByIds(idList);
         return R.ok();
     }
-
+    /**
+     * 锁定与解锁
+     * */
     @ApiOperation(value = "医院设置锁定和解锁")
     @PutMapping("lockHospitalSet/{id}/{status}")
     public R lockHospitalSet(@PathVariable Long id,
