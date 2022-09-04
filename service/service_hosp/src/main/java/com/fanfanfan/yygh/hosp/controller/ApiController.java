@@ -1,18 +1,20 @@
 package com.fanfanfan.yygh.hosp.controller;
 
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.fanfanfan.yygh.common.exception.YyghException;
 import com.fanfanfan.yygh.hosp.bean.Result;
 import com.fanfanfan.yygh.hosp.repository.HospitalRepository;
 import com.fanfanfan.yygh.hosp.service.DepartmentService;
 import com.fanfanfan.yygh.hosp.service.HospitalSetService;
+import com.fanfanfan.yygh.hosp.service.ScheduleService;
 import com.fanfanfan.yygh.hosp.utils.MD5;
 import com.fanfanfan.yygh.hosp.service.HospitalService;
 import com.fanfanfan.yygh.hosp.utils.HttpRequestHelper;
 import com.fanfanfan.yygh.model.hosp.Department;
 import com.fanfanfan.yygh.model.hosp.Hospital;
 import com.fanfanfan.yygh.model.hosp.HospitalSet;
+import com.fanfanfan.yygh.model.hosp.Schedule;
 import com.fanfanfan.yygh.vo.hosp.DepartmentQueryVo;
+import com.fanfanfan.yygh.vo.hosp.ScheduleQueryVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
@@ -40,6 +42,8 @@ public class ApiController {
 
     @Autowired
     private DepartmentService departmentService;
+    @Autowired
+    private ScheduleService scheduleService;
 
     @ApiOperation(value = "上传医院")
     @PostMapping("saveHospital")
@@ -120,6 +124,46 @@ public class ApiController {
         String depcode = (String)paramMap.get("depcode");
 
         departmentService.remove(hoscode, depcode);
+        return Result.ok();
+    }
+
+    @ApiOperation(value = "上传排班")
+    @PostMapping("saveSchedule")
+    public Result saveSchedule(HttpServletRequest request) {
+        Map<String, Object> paramMap = HttpRequestHelper.switchMap(request.getParameterMap());
+        //必须参数校验 略
+        String hoscode = (String)paramMap.get("hoscode");
+        scheduleService.save(paramMap);
+        return Result.ok();
+    }
+
+    @ApiOperation(value = "获取排班分页列表")
+    @PostMapping("schedule/list")
+    public Result schedule(HttpServletRequest request) {
+        Map<String, Object> paramMap = HttpRequestHelper.switchMap(request.getParameterMap());
+        //必须参数校验 略
+        String hoscode = (String)paramMap.get("hoscode");
+        //非必填
+        String depcode = (String)paramMap.get("depcode");
+        int page = StringUtils.isEmpty(paramMap.get("page")) ? 1 : Integer.parseInt((String)paramMap.get("page"));
+        int limit = StringUtils.isEmpty(paramMap.get("limit")) ? 10 : Integer.parseInt((String)paramMap.get("limit"));
+
+        ScheduleQueryVo scheduleQueryVo = new ScheduleQueryVo();
+        scheduleQueryVo.setHoscode(hoscode);
+        scheduleQueryVo.setDepcode(depcode);
+        Page<Schedule> pageModel = scheduleService.selectPage(page , limit, scheduleQueryVo);
+        return Result.ok(pageModel);
+    }
+    @ApiOperation(value = "删除排班")
+    @PostMapping("schedule/remove")
+    public Result removeSchedule(HttpServletRequest request) {
+        Map<String, Object> paramMap = HttpRequestHelper.switchMap(request.getParameterMap());
+        //必须参数校验 略
+        String hoscode = (String)paramMap.get("hoscode");
+        //必填
+        String hosScheduleId = (String)paramMap.get("hosScheduleId");
+
+        scheduleService.remove(hoscode, hosScheduleId);
         return Result.ok();
     }
 }
