@@ -2,6 +2,7 @@ package com.fanfanfan.yygh.hosp.repository;
 
 import com.fanfanfan.yygh.model.hosp.Hospital;
 
+import com.fanfanfan.yygh.model.hosp.HospitalSet;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;

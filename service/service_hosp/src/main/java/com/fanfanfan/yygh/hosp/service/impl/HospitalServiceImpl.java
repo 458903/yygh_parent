@@ -16,7 +16,10 @@ public class HospitalServiceImpl implements HospitalService {
     @Autowired
     private HospitalRepository hospitalRepository;
 
-
+    @Override
+    public Hospital getByHoscode(String hoscode) {
+        return hospitalRepository.getHospitalByHoscode(hoscode);
+    }
     @Override
     public void save(Map<String, Object> paramMap) {
         Hospital hospital = JSONObject.parseObject(JSONObject.toJSONString(paramMap),Hospital.class);
@@ -37,23 +40,7 @@ public class HospitalServiceImpl implements HospitalService {
             hospitalRepository.save(hospital);
         }
     }
-/*    @Override
-    public String getSignKey(String hoscode) {
-        HospitalSet hospitalSet = this.getByHoscode(hoscode);
-        if(null == hospitalSet) {
-            throw new YyghException(20001,"失败");
-        }
-        return hospitalSet.getSignKey();
-    }
 
 
-    *//**
-     * 根据hoscode获取医院设置
-     * @param hoscode
-     * @return
-     *//*
-    @Override
-    public Hospital getByHoscode(String hoscode) {
-        return hospitalRepository.getHospitalByHoscode(hoscode);
-    }*/
+
 }

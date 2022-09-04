@@ -1,5 +1,6 @@
 package com.fanfanfan.yygh.hosp.service;
 
+import com.fanfanfan.yygh.model.hosp.Hospital;
 import com.fanfanfan.yygh.model.hosp.HospitalSet;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -13,4 +14,12 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface HospitalSetService extends IService<HospitalSet> {
 
+    /**
+     * 获取签名key
+     * @param hoscode
+     * @return
+     */
+    String getSignKey(String hoscode);
+
 }
+
