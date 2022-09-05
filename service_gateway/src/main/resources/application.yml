@@ -18,6 +18,7 @@ spring:
           uri: lb://service-hosp
           predicates:
             - Path=/*/user/** # 路径匹配
+            - Path=/admin/**
         - id: service-cmn
           uri: lb://service-cmn
           predicates:
