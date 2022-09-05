@@ -22,7 +22,7 @@ import java.util.List;
  * @author fanfanfan
  * @since 2022-09-02
  */
-@CrossOrigin
+//@CrossOrigin
 @Api(tags = "字典设置接口")
 @RestController
 @RequestMapping("/admin/cmn")

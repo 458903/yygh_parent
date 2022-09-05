@@ -9,9 +9,10 @@
         <module>common</module>
         <module>hospital-manage</module>
 		<module>service_client</module>
+        <module>service_gateway</module>
 
 
-	</modules>
+    </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>

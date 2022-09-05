@@ -27,7 +27,7 @@ import java.util.Random;
  * </p>
  * @author fanfanfan
  */
-@CrossOrigin
+//@CrossOrigin
 @RestController
 @Api(tags = "医院设置接口")
 @RequestMapping("/admin/hosp/hospital-set")

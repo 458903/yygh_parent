@@ -4,7 +4,7 @@ import com.fanfanfan.yygh.common.result.R;
 import com.fanfanfan.yygh.model.acl.User;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin
+//@CrossOrigin
 @RestController
 @RequestMapping(value = "/admin/user")
 public class UserController {

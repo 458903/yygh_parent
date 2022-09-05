@@ -27,4 +27,12 @@ public interface HospitalService {
      * @param hospitalQueryVo 查询条件
      */
     Page<Hospital> selectPage(Integer page, Integer limit, HospitalQueryVo hospitalQueryVo);
+
+    void updateStatus(String id, Integer status);
+    /**
+     * 医院详情
+     * @param id
+     * @return
+     */
+    Map<String, Object> show(String id);
 }
