@@ -8,7 +8,10 @@
 		<module>coder</module>
         <module>common</module>
         <module>hospital-manage</module>
-    </modules>
+		<module>service_client</module>
+
+
+	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>

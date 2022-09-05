@@ -1,4 +1,4 @@
-package com.fanfanfan.yygh.hosp.controller;
+package com.fanfanfan.yygh.hosp.controller.admin;
 
 import com.fanfanfan.yygh.common.result.R;
 import com.fanfanfan.yygh.model.acl.User;

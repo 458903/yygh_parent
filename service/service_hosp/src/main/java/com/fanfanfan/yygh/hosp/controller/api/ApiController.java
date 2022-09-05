@@ -1,4 +1,4 @@
-package com.fanfanfan.yygh.hosp.controller;
+package com.fanfanfan.yygh.hosp.controller.api;
 
 import com.fanfanfan.yygh.common.exception.YyghException;
 import com.fanfanfan.yygh.hosp.bean.Result;

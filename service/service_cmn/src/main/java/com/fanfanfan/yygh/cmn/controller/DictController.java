@@ -6,6 +6,7 @@ import com.fanfanfan.yygh.common.result.R;
 import com.fanfanfan.yygh.model.cmn.Dict;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -48,5 +49,33 @@ public class DictController {
         dictService.importDictData(file);
         return R.ok();
     }
+    @ApiOperation(value = "获取数据字典名称")
+    @GetMapping(value = "/getName/{parentDictCode}/{value}")
+    public String getName(
+            @ApiParam(name = "parentDictCode", value = "上级编码", required = true)
+            @PathVariable("parentDictCode") String parentDictCode,
+            @ApiParam(name = "value", value = "值", required = true)
+            @PathVariable("value") String value) {
+        return dictService.getNameByParentDictCodeAndValue(parentDictCode, value);
+    }
+
+    @ApiOperation(value = "获取数据字典名称")
+    @GetMapping(value = "/getName/{value}")
+    public String getName(
+            @ApiParam(name = "value", value = "值", required = true)
+            @PathVariable("value") String value) {
+        return dictService.getNameByParentDictCodeAndValue("", value);
+    }
+    @ApiOperation(value = "根据dictCode获取下级节点")
+    @GetMapping(value = "/findByDictCode/{dictCode}")
+    public R findByDictCode(
+            @ApiParam(name = "dictCode", value = "节点编码", required = true)
+            @PathVariable String dictCode) {
+        List<Dict> list = dictService.findByDictCode(dictCode);
+        return R.ok().data("list",list);
+    }
+
+
+
 }
 
