@@ -47,13 +47,23 @@ public class Swagger2Config {
                 .paths(Predicates.and(PathSelectors.regex("/admin/.*")))
                 .build();
     }
+    @Bean
+    public Docket userApiConfig(){
+        return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("userApi")
+                .apiInfo(userApiInfo())
+                .select()
+                //只显示admin路径下的页面
+                .paths(Predicates.and(PathSelectors.regex("/user/user-info/.*")))
+                .build();
+    }
 
     private ApiInfo webApiInfo(){
         return new ApiInfoBuilder()
                 .title("网站-API文档")
                 .description("本文档描述了网站微服务接口定义")
                 .version("1.0")
-                .contact(new Contact("atguigu", "http://atguigu.com", "493211102@qq.com"))
+                .contact(new Contact("fanfanfan", "http://atguigu.com", "493211102@qq.com"))
                 .build();
     }
 
@@ -62,7 +72,15 @@ public class Swagger2Config {
                 .title("后台管理系统-API文档")
                 .description("本文档描述了后台管理系统微服务接口定义")
                 .version("1.0")
-                .contact(new Contact("atguigu", "http://atguigu.com", "49321112@qq.com"))
+                .contact(new Contact("fan", "http://atguigu.com", "49321112@qq.com"))
+                .build();
+    }
+    private ApiInfo userApiInfo(){
+        return new ApiInfoBuilder()
+                .title("登录文档")
+                .description("本文档描述了后台管理系统微服务接口定义")
+                .version("1.0")
+                .contact(new Contact("fan", "http://atguigu.com", "49321112@qq.com"))
                 .build();
     }
 

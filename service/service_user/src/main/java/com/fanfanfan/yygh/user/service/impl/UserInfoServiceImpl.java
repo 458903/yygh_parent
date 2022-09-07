@@ -1,12 +1,15 @@
 package com.fanfanfan.yygh.user.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.fanfanfan.yygh.common.Utils.JwtHelper;
 import com.fanfanfan.yygh.common.exception.YyghException;
 import com.fanfanfan.yygh.model.user.UserInfo;
 import com.fanfanfan.yygh.user.mapper.UserInfoMapper;
 import com.fanfanfan.yygh.user.service.UserInfoService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.fanfanfan.yygh.vo.user.LoginVo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -24,6 +27,9 @@ import java.util.Map;
  */
 @Service
 public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> implements UserInfoService {
+    @Autowired
+    private RedisTemplate<String, String> redisTemplate;
+
     @Override
     public Map<String, Object> login(LoginVo loginVo) {
         String phone = loginVo.getPhone();
@@ -33,9 +39,11 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
                 StringUtils.isEmpty(code)) {
             throw new YyghException(20001,"数据为空");
         }
-
-        //TODO 校验校验验证码
-
+        //校验校验验证码
+        String mobleCode = redisTemplate.opsForValue().get(phone);
+        if(!code.equals(mobleCode)) {
+            throw new YyghException(20001,"验证码失败");
+        }
         //手机号已被使用
         QueryWrapper<UserInfo> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("phone", phone);
@@ -64,7 +72,11 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
             name = userInfo.getPhone();
         }
         map.put("name", name);
-        map.put("token", "");
+           /*  map.put("token", "");
+        return map;*/
+        //jwt生成token字符串
+        String token = JwtHelper.createToken(userInfo.getId(), name);
+        map.put("token",token);
         return map;
     }
 }

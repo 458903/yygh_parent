@@ -9,6 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan(basePackages = "com.fanfanfan")
+@ComponentScan("com.fanfanfan.yygh.common.config")
 @EnableDiscoveryClient
 @EnableFeignClients(basePackages = "com.fanfanfan")
 @MapperScan("com.fanfanfan.yygh.user.mapper")

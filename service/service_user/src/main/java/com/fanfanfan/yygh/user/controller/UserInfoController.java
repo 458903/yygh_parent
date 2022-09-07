@@ -4,6 +4,7 @@ package com.fanfanfan.yygh.user.controller;
 import com.fanfanfan.yygh.common.result.R;
 import com.fanfanfan.yygh.user.service.UserInfoService;
 import com.fanfanfan.yygh.vo.user.LoginVo;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,6 +24,7 @@ import java.util.Map;
  * @since 2022-09-06
  */
 @RestController
+@Api(tags = "医院登录接口")
 @RequestMapping("/user/user-info")
 public class UserInfoController {
 
