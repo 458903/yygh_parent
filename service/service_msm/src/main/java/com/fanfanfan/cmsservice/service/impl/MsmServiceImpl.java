@@ -2,6 +2,8 @@ package com.fanfanfan.cmsservice.service.impl;
 import com.fanfanfan.cmsservice.service.MsmService;
 import com.fanfanfan.cmsservice.utils.HttpUtils;
 import com.fanfanfan.cmsservice.utils.RandomUtil;
+import com.fanfanfan.yygh.vo.msm.MsmVo;
+import com.sun.xml.internal.ws.api.pipe.ServerPipeAssemblerContext;
 import org.apache.http.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -82,5 +84,11 @@ public class MsmServiceImpl  implements MsmService {
         return false;
     }
 */
-
+//发送短信实现
+//发送短信实现
+@Override
+public void sendCode(MsmVo msmVo) {
+    String phone=msmVo.getPhone();
+    System.out.println("预约挂号成功短信提示");
+}
 }

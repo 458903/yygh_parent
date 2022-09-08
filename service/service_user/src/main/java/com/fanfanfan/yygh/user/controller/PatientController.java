@@ -5,6 +5,8 @@ import com.fanfanfan.yygh.common.Utils.AuthContextHolder;
 import com.fanfanfan.yygh.common.result.R;
 import com.fanfanfan.yygh.model.user.Patient;
 import com.fanfanfan.yygh.user.service.PatientService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,6 +26,7 @@ import java.util.List;
 public class PatientController {
     @Autowired
     private PatientService patientService;
+
     //获取就诊人列表
     @GetMapping("auth/findAll")
     public R findAll(HttpServletRequest request) {
@@ -58,6 +61,13 @@ public class PatientController {
     public R removePatient(@PathVariable Long id) {
         patientService.removeById(id);
         return R.ok();
+    }
+    @ApiOperation(value = "获取就诊人")
+    @GetMapping("inner/get/{id}")
+    public Patient getPatientOrder(
+            @ApiParam(name = "id", value = "就诊人id", required = true)
+            @PathVariable("id") Long id) {
+        return patientService.getById(id);
     }
 }
 
